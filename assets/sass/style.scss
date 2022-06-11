@@ -1,0 +1,101 @@
+$color-dark-light: #222222;
+$color-dark: #0c0c0c;
+$color-white: #fff;
+$color-red: rgb(120,4,16);
+
+* {
+    box-sizing: border-box;
+}
+
+html, body, #app, #principal {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#principal {
+        background-color: $color-red;
+        transition: background-color 1s ease;
+        color: $color-white;
+    
+    // menu de navegacao lateral
+    #latNav {
+        max-width: 246px;
+        background-color: $color-dark;
+    }
+
+    // conteudo principal (feed)
+    #feed {
+        background: linear-gradient(180deg, rgba(0,0,0,0) 0%, $color-dark-light 50%, $color-dark-light 100%);
+        overflow-y: auto;
+
+        // navegador superior do feed
+        #topNav {
+            transition: background-color 1s ease;
+            position: sticky;
+            top: 0;
+
+            // setas
+            #arrowMenu {
+                button {
+                    border: none;
+                    margin: 5px;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 16px;
+                    background-color: $color-dark;
+                    fill: $color-white;
+                    opacity: .5;
+                }
+            }
+
+            // botoes
+            #btnTopNav {
+                button#upgrade {
+                    background-color: rgba($color-dark, .1);
+                    color: $color-white;
+                    padding: 2px 10px;
+                    margin: 1px;
+                    border-radius: 20px;
+                    border: 1px solid $color-white;
+                    opacity: .8;
+                    font-weight: 500;
+                    font-size: .9em;
+    
+                    &:hover {
+                        background-color: rgba($color-dark, 1);
+                        padding: 2px 11px;
+                    }
+                }
+
+                #btnUsuario {
+                    button {
+                        background-color: rgba($color-dark, .4);
+                        border: none;
+                        border-radius: 50px;
+                        padding: 3px;
+                        padding-right: 10px;
+
+                        .imgUsuario {
+                            border-radius: 14px;
+                            display: inline-block;
+                            width: 28px;
+                            height: 28px;
+                        }
+
+                        &:focus {
+                            box-shadow: 0 0 0 0;
+                            border: 0 none;
+                            outline: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        // feed do conteudo principal
+        #main {
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, $color-dark-light 50%, $color-dark-light 100%);
+        }
+    }
+}
