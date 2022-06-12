@@ -338,4 +338,120 @@ html, body, #app, #principal {
   }
 }
 
+#audioBar {
+  width: 100%;
+  height: 90px;
+  background-color: #222222;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  /*********** barra de volume e de progresso ***********/
+  /******** Chrome, Safari, Opera and Edge Chromium styles ********/
+  /* slider track */
+  /* slider thumb */
+  /*********** Firefox styles ***********/
+  /* slider track */
+  /* slider thumb */
+}
+#audioBar button.icones {
+  background-color: rgba(0, 0, 0, 0);
+  fill: #fff;
+  border: none;
+  opacity: 0.7;
+}
+#audioBar button.icones:hover {
+  opacity: 1;
+}
+#audioBar button.icones.aleatorio {
+  margin: 5px 15px 5px 5px;
+}
+#audioBar button.icones.proximo {
+  margin: 5px 5px 5px 15px;
+}
+#audioBar button.icones.proximo svg {
+  margin-bottom: 4px;
+}
+#audioBar button.icones.anterior {
+  transform: rotate(180deg);
+  margin: 5px 15px 5px 5px;
+}
+#audioBar button.icones.anterior svg {
+  margin-bottom: 4px;
+}
+#audioBar button.icones.repetir {
+  margin: 5px 5px 5px 15px;
+}
+#audioBar button.icones.legenda, #audioBar button.icones.lista, #audioBar button.icones.outrosDispositivos {
+  padding-right: 15px;
+}
+#audioBar #caixaCentral #caixaSetas button.playPause {
+  width: 35px;
+  height: 35px;
+  border-radius: 24px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+#audioBar #caixaCentral #caixaSetas button.playPause:hover {
+  padding: 2px;
+}
+#audioBar #caixaCentral #barraDeProgresso small {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9em;
+  margin: 10px;
+}
+#audioBar #caixaCentral #barraDeProgresso input[type=range] {
+  width: 25rem;
+}
+#audioBar #configAudio #volume input[type=range] {
+  width: 5rem;
+}
+#audioBar input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 5rem;
+}
+#audioBar input[type=range]:focus {
+  outline: none;
+}
+#audioBar input[type=range]::-webkit-slider-runnable-track {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  height: 0.25rem;
+}
+#audioBar input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /* Override default look */
+  appearance: none;
+  margin-top: -3.2px;
+  /* Centers thumb on the track */
+  background-color: #22c925;
+  border-radius: 0.5rem;
+  height: 0.7rem;
+  width: 0.7rem;
+}
+#audioBar input[type=range]:focus::-webkit-slider-thumb {
+  outline: 3px solid #22c925;
+  outline-offset: 0.125rem;
+}
+#audioBar input[type=range]::-moz-range-track {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  height: 0.25rem;
+}
+#audioBar input[type=range]::-moz-range-thumb {
+  background-color: #22c925;
+  border: none;
+  /*Removes extra border that FF applies*/
+  border-radius: 0.5rem;
+  height: 0.7rem;
+  width: 0.7rem;
+}
+#audioBar input[type=range]:focus::-moz-range-thumb {
+  outline: 3px solid #22c925;
+  outline-offset: 0.125rem;
+}
+
 /*# sourceMappingURL=style.css.map */
