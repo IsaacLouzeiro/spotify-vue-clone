@@ -71,14 +71,22 @@
 
 
                     <!-- feed do conteudo principal -->
-                    <main id="main">
+                    <main id="main" class="p-4">
 
-                        
+                        <!-- seção inicial (header) -->
+                        <section id="feedHeader">
+                            <!-- saudacao -->
+                            <h3 class="fw-bold">{{ saudacao }}</h3>
 
-                        <span @mouseover="corFundoAzul()" @mouseout="corFundoPrincipal()">Hover</span>
-                        <span @mouseover="corFundoMarrom()" @mouseout="corFundoPrincipal()">Hover</span>
-                        <span @mouseover="corFundoAzulEscuro()" @mouseout="corFundoPrincipal()">Hover</span>
-                    
+                            <!-- playlists recentes -->
+                            <ul id="playlistsRecentes">
+                                <li v-for="playlist in playlists" :key="playlist.id" @mouseover="mudarCorFundo(playlist.id)" @mouseout="corFundoPrincipal()">
+                                    <img :src="playlist.img" :alt="playlist.nome">
+                                    <span class="fw-semibold ms-3 me-auto">{{ playlist.nome }}</span>
+                                    <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24" class="Svg-sc-1bi12j5-0 jgfuCe"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg></button>
+                                </li>
+                            </ul>
+                        </section>
                     </main>
                 </div>
 
@@ -102,6 +110,55 @@
                 data() {
                     return {
                         corFundo: 'rgb(120,4,16)',
+
+                        // playlists recentes
+                        playlists: [
+                            {
+                                id: 1,
+                                nome: 'Daily mix 1',
+                                img: 'assets/img/daily.png'
+                            },
+                            {
+                                id: 2,
+                                nome: 'Daily mix 2',
+                                img: 'assets/img/daily2.png'
+                            },
+                            {
+                                id: 3,
+                                nome: 'Daily mix 3',
+                                img: 'assets/img/daily3.png'
+                            },
+                            {
+                                id: 4,
+                                nome: 'Daily mix 4',
+                                img: 'assets/img/daily4.png'
+                            },
+                            {
+                                id: 5,
+                                nome: 'Daily mix 5',
+                                img: 'assets/img/daily5.png'
+                            },
+                            {
+                                id: 6,
+                                nome: 'Daily mix 6',
+                                img: 'assets/img/daily6.png'
+                            }
+                        ]
+                    }
+                },
+
+                computed: {
+                    // saudacao de "Bom dia", "Boa tarde" e "Boa noite"
+                    saudacao() {
+                        var horario = new Date().getHours()
+                        
+                        if (horario >= 18 || horario == 0) {
+                            return 'Boa noite'
+                        }else if (horario >= 12) {
+                            return 'Boa tarde'
+                        }else if(horario >= 01) {
+                            return 'Bom dia'
+                        }
                     }
                 },
 
@@ -109,9 +166,27 @@
                     corFundoPrincipal() {
                         this.corFundo = 'rgb(120,4,16)'
                     },
-                    corFundoAzul() { this.corFundo = 'rgb(4, 116, 120)' },
-                    corFundoAzulEscuro() { this.corFundo = 'rgb(2, 29, 102)' },
-                    corFundoMarrom() { this.corFundo = 'rgb(121, 77, 15)' }
+                    mudarCorFundo(n) {
+                        switch (n) {
+                            case 2:
+                                this.corFundo = 'rgb(36, 0, 4)'
+                                break;
+                            case 3:
+                                this.corFundo = 'rgb(4, 116, 120)'
+                                break;
+                            case 4:
+                                this.corFundo =  'rgb(2, 29, 102)'
+                                break;
+                            case 5:
+                                this.corFundo =  'rgb(121, 77, 15)'
+                                break;
+                            case 6:
+                                this.corFundo =  'rgb(73, 53, 55)'
+                                break;
+                            default:
+                                break;
+                        }  
+                    }
                 }
             }).mount('#app')
         </script>

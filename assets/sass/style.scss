@@ -96,6 +96,56 @@ html, body, #app, #principal {
         // feed do conteudo principal
         #main {
             background: linear-gradient(180deg, rgba(0,0,0,0) 0%, $color-dark-light 50%, $color-dark-light 100%);
+
+            // seção inicial (header)
+            #feedHeader {
+                #playlistsRecentes {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    padding: 0;
+                    li {
+                        list-style-type: none;
+                        width: 32%;
+                        border-radius: 5px;
+                        margin: 7px 0;
+                        cursor: pointer;
+                        transition: background-color .3s ease;
+                        background-color: rgba($color-white, .1);
+                        display: flex;
+                        align-items: center;
+
+                        &:hover {
+                            background-color: rgba($color-white, .3);
+                        }
+
+                        &:hover button.btn {
+                            opacity: 1;
+                            cursor: default;
+                        }
+                        
+                        img {
+                            width: 80px;
+                            height: 80px;
+                            border-radius: 5px 0 0 5px;
+                        }
+
+                        button.btn {
+                            width: 48px;
+                            height: 48px;
+                            border-radius: 24px;
+                            background-color: #1ed760;
+                            transition: opacity .3s ease;
+                            opacity: 0;
+
+                            &:hover {
+                                padding: 1px;
+                                border: 0;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

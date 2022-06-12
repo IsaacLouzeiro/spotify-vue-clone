@@ -72,5 +72,46 @@ html, body, #app, #principal {
 #principal #feed #main {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #222222 50%, #222222 100%);
 }
+#principal #feed #main #feedHeader #playlistsRecentes {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0;
+}
+#principal #feed #main #feedHeader #playlistsRecentes li {
+  list-style-type: none;
+  width: 32%;
+  border-radius: 5px;
+  margin: 7px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+}
+#principal #feed #main #feedHeader #playlistsRecentes li:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+#principal #feed #main #feedHeader #playlistsRecentes li:hover button.btn {
+  opacity: 1;
+  cursor: default;
+}
+#principal #feed #main #feedHeader #playlistsRecentes li img {
+  width: 80px;
+  height: 80px;
+  border-radius: 5px 0 0 5px;
+}
+#principal #feed #main #feedHeader #playlistsRecentes li button.btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  background-color: #1ed760;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+#principal #feed #main #feedHeader #playlistsRecentes li button.btn:hover {
+  padding: 1px;
+  border: 0;
+}
 
 /*# sourceMappingURL=style.css.map */
