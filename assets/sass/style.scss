@@ -119,7 +119,6 @@ html, body, #app, #principal {
         // lista de playlists na lateral
         #listaPlaylistLateral {
             width: 100%;
-            max-height: 200px;
             overflow-y: auto;
             box-shadow: inset 0 30px 15px rgba($color-dark, .2);
 
@@ -161,6 +160,7 @@ html, body, #app, #principal {
             transition: background-color 1s ease;
             position: sticky;
             top: 0;
+            z-index: 999;
 
             // setas
             #arrowMenu {
@@ -226,6 +226,7 @@ html, body, #app, #principal {
 
             // seção inicial (header)
             #feedHeader {
+                max-width: 1920px;
                 #playlistsRecentes {
                     display: flex;
                     justify-content: space-between;
@@ -278,6 +279,117 @@ html, body, #app, #principal {
                                 width: 64px;
                                 height: 64px;
                             }
+                        }
+                    }
+                }
+            }
+
+            // secao feed de playlists
+            .feedPlaylist {
+                max-width: 1920px;
+
+                h4>a {
+                    text-decoration: none;
+                    color: $color-white;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                .playlists {
+                    display: flex;
+                    flex-wrap: wrap;
+                    padding: 0;
+                    justify-content: space-between;
+                    overflow-y: hidden;
+                    height: 380px;
+
+                    li {
+                        width: 15%;
+                        list-style-type: none;
+                        background-color: rgba($color-white, .1);
+                        padding: 15px 15px 0 15px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        transition: background-color .3s;
+                        position: relative;
+                        margin-bottom: 100px;
+
+                        img {
+                            width: 100%;
+                            border-radius: 5px;
+                            margin-bottom: 17px;
+                        }
+
+                        span {
+                            font-weight: 700;
+                        }
+
+                        p {
+                            font-size: .9em;
+                            line-height: 15px;
+                            opacity: .8;
+                        }
+
+                        button.btn {
+                            width: 48px;
+                            height: 48px;
+                            border-radius: 24px;
+                            background-color: #1ed760;
+                            transition: all .3s ease;
+                            opacity: 0;
+                            position: absolute;
+                            right: 8px;
+                            bottom: 80px;
+                            cursor: default;
+
+                            &:hover {
+                                padding: 1px;
+                                border: 0;
+                            }
+                        }
+
+                        &:hover {
+                            background-color: rgba($color-white, .2);
+                        
+                            button.btn {
+                                bottom: 95px;
+                                opacity: 1;
+                            }
+                        }  
+                    }
+
+                    @media only screen and (max-width: 2130px) { height: 360px; }
+                    @media only screen and (max-width: 1920px) { height: 320px; }
+                    @media only screen and (max-width: 1730px) { height: 300px; }
+
+
+                    @media only screen and (max-width: 1512px) {
+                        height: 295px;
+                        li {
+                            width: 18%;
+                        }
+                    }
+
+                    @media only screen and (max-width: 1324px) {
+                        height: 310px;
+                        li {
+                            width: 23%;
+                        }
+                    }
+                    
+                    @media only screen and (max-width: 996px) {
+                        height: 295px;
+
+                        li {
+                            width: 32%;
+                        }
+                    }
+                    @media only screen and (max-width: 796px) {
+                        height: 310px;
+
+                        li {
+                            width: 48%;
                         }
                     }
                 }

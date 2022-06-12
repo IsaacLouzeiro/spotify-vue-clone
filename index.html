@@ -70,7 +70,7 @@
 
                     <!-- lista de playlists na lateral -->
                     <ul id="listaPlaylistLateral" class="nav px-2">
-                        <li v-for="playlist in playlists" :key="playlist.id" class="nav-item"><a href="#" class="nav-link">{{ playlist.nome }}</a></li>
+                        <li v-for="playlist in playlistPadrao" :key="playlist.id" class="nav-item"><a href="#" class="nav-link">{{ playlist.nome }}</a></li>
                     </ul>
 
                     <!-- instalar aplicativo -->
@@ -123,10 +123,10 @@
                         <!-- seção inicial (header) -->
                         <section id="feedHeader">
                             <!-- saudacao -->
-                            <h3 class="fw-bold">{{ saudacao }}</h3>
+                            <h2 class="fw-bold">{{ saudacao }}</h2>
 
                             <!-- playlists recentes -->
-                            <ul id="playlistsRecentes">
+                            <ul id="playlistsRecentes" class="mb-5">
                                 <li v-for="playlist in playlists" :key="playlist.id" @mouseover="mudarCorFundo(playlist.id)" @mouseout="corFundoPrincipal()">
                                     <img :src="playlist.img" :alt="playlist.nome">
                                     <span class="fw-semibold ms-3 me-auto">{{ playlist.nome }}</span>
@@ -135,6 +135,48 @@
                             </ul>
                         </section>
 
+
+                        <!-- secao feito para você -->
+                        <section class="feedPlaylist">
+                            <h4 class="mb-3"><a href="#">{{ tituloParaVoce }}</a></h4>
+
+                            <ul class="playlists">
+                                <li v-for="playlist in listaUm" :key="playlist.id">
+                                    <img :src="playlist.img" :alt="playlist.nome">
+                                    <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg></button>
+                                    <span>{{ playlist.nome }}</span>
+                                    <p>{{ playlist.subtitulo }}</p>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <!-- secao tocadas recentemente -->
+                        <section class="feedPlaylist">
+                            <h4 class="mb-3"><a href="#">{{ tituloTocadaRecentemente }}</a></h4>
+
+                            <ul class="playlists">
+                                <li v-for="playlist in listaDois" :key="playlist.id">
+                                    <img :src="playlist.img" :alt="playlist.nome">
+                                    <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg></button>
+                                    <span>{{ playlist.nome }}</span>
+                                    <p>{{ playlist.subtitulo }}</p>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <!-- secao mixes mais ouvidos -->
+                        <section class="feedPlaylist">
+                            <h4 class="mb-3"><a href="#">{{ mixesMaisOuvidos }}</a></h4>
+
+                            <ul class="playlists">
+                                <li v-for="playlist in listaTres" :key="playlist.id">
+                                    <img :src="playlist.img" :alt="playlist.nome">
+                                    <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"></path></svg></button>
+                                    <span>{{ playlist.nome }}</span>
+                                    <p>{{ playlist.subtitulo }}</p>
+                                </li>
+                            </ul>
+                        </section>
                     </main>
                 </div>
 
@@ -191,6 +233,54 @@
                                 nome: 'Daily mix 6',
                                 img: 'assets/img/daily6.png'
                             }
+                        ],
+                        
+                        // TITULOS AQUI PARA FACILITAR TRADUÇÃO **
+                        // feito para você
+                        tituloParaVoce: 'Feito para você',
+                        // tocadas recentemente
+                        tituloTocadaRecentemente: 'Tocadas recentemente',
+                        // seus mixes mais ouvidos
+                        mixesMaisOuvidos: 'Seus mixes mais ouvidos', 
+
+                        // playlists de exemplo
+                        playlistPadrao: [
+                            {
+                                id: 1,
+                                nome: 'Daily mix 1',
+                                img: 'assets/img/daily.png',
+                                subtitulo: 'Lorem ipsum dolor sit amet conceptur adcipt'
+                            },
+                            {
+                                id: 2,
+                                nome: 'Daily mix 2',
+                                img: 'assets/img/daily2.png',
+                                subtitulo: 'Lorem ipsum dolor sit amet conceptur adcipt'
+                            },
+                            {
+                                id: 3,
+                                nome: 'Daily mix 3',
+                                img: 'assets/img/daily3.png',
+                                subtitulo: 'Lorem ipsum dolor sit amet conceptur adcipt'
+                            },
+                            {
+                                id: 4,
+                                nome: 'Daily mix 4',
+                                img: 'assets/img/daily4.png',
+                                subtitulo: 'Lorem ipsum dolor sit amet conceptur adcipt'
+                            },
+                            {
+                                id: 5,
+                                nome: 'Daily mix 5',
+                                img: 'assets/img/daily5.png',
+                                subtitulo: 'Lorem ipsum dolor sit amet conceptur adcipt'
+                            },
+                            {
+                                id: 6,
+                                nome: 'Daily mix 6',
+                                img: 'assets/img/daily6.png',
+                                subtitulo: 'Lorem ipsum dolor sit amet conceptur adcipt'
+                            }
                         ]
                     }
                 },
@@ -207,6 +297,20 @@
                         }else if(horario >= 01) {
                             return 'Bom dia'
                         }
+                    },
+
+                    // mostrar as playlists em ordem diferente
+                    listaUm() {
+                        let listaUm = this.playlistPadrao
+                        return listaUm.sort(() => Math.random() - 0.5)
+                    },
+                    listaDois() {
+                        let listaDois = this.playlistPadrao
+                        return listaDois.sort(() => Math.random() - 0.5)
+                    },
+                    listaTres() {
+                        let listaTres = this.playlistPadrao
+                        return listaTres.sort(() => Math.random() - 0.5)
                     }
                 },
 
