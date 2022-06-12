@@ -143,6 +143,15 @@ html, body, #app, #principal {
                                 border: 0;
                             }
                         }
+
+                        @media only screen and (max-width: 1186px) {
+                            width: 49%;
+
+                            img {
+                                width: 64px;
+                                height: 64px;
+                            }
+                        }
                     }
                 }
             }

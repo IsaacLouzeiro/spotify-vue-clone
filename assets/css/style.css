@@ -113,5 +113,14 @@ html, body, #app, #principal {
   padding: 1px;
   border: 0;
 }
+@media only screen and (max-width: 1186px) {
+  #principal #feed #main #feedHeader #playlistsRecentes li {
+    width: 49%;
+  }
+  #principal #feed #main #feedHeader #playlistsRecentes li img {
+    width: 64px;
+    height: 64px;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
