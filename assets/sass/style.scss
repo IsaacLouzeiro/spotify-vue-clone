@@ -1,10 +1,31 @@
 $color-dark-light: #222222;
-$color-dark: #0c0c0c;
+$color-dark: #0a0a0a;
 $color-white: #fff;
 $color-red: rgb(120,4,16);
 
 * {
     box-sizing: border-box;
+}
+
+// barra de rolagem
+/* width */
+::-webkit-scrollbar {
+    width: 14px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(136, 136, 136, 0.589);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(85, 85, 85, 0.637);
 }
 
 html, body, #app, #principal {
@@ -22,6 +43,112 @@ html, body, #app, #principal {
     #latNav {
         max-width: 246px;
         background-color: $color-dark;
+
+        // link da logomarca
+        a {
+            text-decoration: none;
+            color: $color-white;
+        }
+
+        // lista de navegação lateral
+        .nav {
+            .nav-item {
+                .nav-link {
+                    color: $color-white;
+                    fill: $color-white;
+                    font-size: .9em;
+                    font-weight: bold;
+                    opacity: .8;
+                    transition: opacity .3s ease;
+
+                    svg {
+                        margin-right: 13px;
+                    }
+
+                    &.ativo, &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        // de baixo da lista
+        #underList {
+            button {
+                background-color: rgba(0,0,0,0);
+                border: 0;
+                display: flex;
+                color: $color-white;
+                opacity: .8;
+                transition: opacity .3s ease;
+                padding: 8px 24px;
+                width: 100%;
+                font-size: .9em;
+                font-weight: bold;
+
+                .plusBtn, .heartBtn, .flagBtn {
+                    width: 24px;
+                    height: 24px;
+                    margin-right: 16px;
+                    border-radius: 2px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .plusBtn {
+                    background-color: $color-white;
+                }
+                
+                .heartBtn {
+                    background: linear-gradient(125deg, rgba(119,61,227,1) 41%, rgba(207,255,241,1) 100%);
+                    fill: $color-white;
+                }
+
+                .flagBtn {
+                    background-color: #0b582e;
+                    fill: #1ed760;
+                }
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+
+        // lista de playlists na lateral
+        #listaPlaylistLateral {
+            width: 100%;
+            max-height: 200px;
+            overflow-y: auto;
+            box-shadow: inset 0 30px 15px rgba($color-dark, .2);
+
+            li {
+                width: 100%;
+                list-style-type: none;
+                a {
+                    font-size: .9em;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        // instalar aplicativo
+        #instalarAplicativo {
+            fill: $color-white;
+            font-size: .9em;
+            font-weight: 500;
+            opacity: .8;
+            transition: opacity .3s;
+
+            svg {
+                margin-right: 15px;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+        }
     }
 
     // conteudo principal (feed)
