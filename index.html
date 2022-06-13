@@ -19,6 +19,28 @@
     </head>
     <body>
         <div id="app" class="d-flex flex-column">
+            <!-- popup de alerta -->
+            <!-- Detectar se o dispositivo é movel -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Dispositivo móvel detectado</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    Foi detectado acesso por um dispositivo móvel. Para você ter uma melhor experiência, baixe o aplicativo do Spotify
+
+                    Caso queira continuar, clique em fechar.
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-success"> Baixar aplicativo</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
             <!-- conteudo principal do site -->
             <div id="principal" class="d-flex" :style="{backgroundColor: corFundo}">
 
@@ -224,8 +246,6 @@
         
 
 
-
-
         <!-- VUE JS -->
         <script>
             const { createApp } = Vue
@@ -234,6 +254,8 @@
             createApp({
                 data() {
                     return {
+                        eMovel: false,
+
                         corFundo: 'rgb(120,4,16)',
 
                         // playlists recentes
@@ -380,9 +402,22 @@
 
 
 
-    <!-- Bootstrap JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+        <!-- Bootstrap JavaScript Libraries -->
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        
+        <script>
+            // detectar se o dispositivel é móvel
+            function isMobile(params) {
+                if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                    var myModalEl = document.getElementById('exampleModal');
+                    var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {
+                        keyboard: false
+                    });
+                    
+                    myModal.show()
+                }
+            }isMobile()
+        </script>
     </body>
 </html>
