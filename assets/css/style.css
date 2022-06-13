@@ -25,7 +25,12 @@
 html, body, #app, #principal {
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow-y: hidden;
+}
+
+#app {
+  min-width: 767px;
+  overflow-x: auto;
 }
 
 #principal {
@@ -351,6 +356,9 @@ html, body, #app, #principal {
   /* slider track */
   /* slider thumb */
 }
+#audioBar #musicaPlay {
+  width: 20%;
+}
 #audioBar button.icones {
   background-color: rgba(0, 0, 0, 0);
   fill: #fff;
@@ -452,6 +460,30 @@ html, body, #app, #principal {
 #audioBar input[type=range]:focus::-moz-range-thumb {
   outline: 3px solid #22c925;
   outline-offset: 0.125rem;
+}
+@media only screen and (max-width: 1060px) {
+  #audioBar button.icones svg {
+    width: 15px;
+    height: 15px;
+  }
+  #audioBar button.icones.legenda, #audioBar button.icones.lista, #audioBar button.icones.outrosDispositivos {
+    padding-right: 8px;
+  }
+  #audioBar #caixaCentral #caixaSetas button.playPause {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+  }
+  #audioBar #caixaCentral #caixaSetas button.playPause svg {
+    width: 18px;
+    height: 18px;
+  }
+  #audioBar #caixaCentral #barraDeProgresso small {
+    font-size: 0.8em;
+  }
+  #audioBar #caixaCentral #barraDeProgresso input[type=range] {
+    width: 15rem;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
