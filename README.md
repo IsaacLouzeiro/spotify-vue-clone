@@ -8,7 +8,7 @@
 
 ### -- About
 
-####  Spotify Web Audio Player in Vue Js, created to practice my abilities.
+####  Spotify Web Audio Player clone in Vue Js, created to practice my abilities.
 
 ### -- Technologies
 
